@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int i = 0;
+        int j = s.size() - 1;
+        while (i <= j) {
+            // first, check if they both are alnmum
+            if (!isalnum(s[i]))
+                i++;
+            else if (!isalnum(s[j]))
+                j--;
+            else if (isalnum(s[i]) && isalnum(s[j])) {
+                if (tolower(s[i]) == tolower(s[j])) {
+                    i++;
+                    j--;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+};
